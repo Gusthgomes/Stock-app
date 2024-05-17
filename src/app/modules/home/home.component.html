@@ -1,42 +1,115 @@
 <div class="grid">
   <div class="col-12">
     <div>
+      <!--Sign In-->
       <form
-        class="w-[400px] h-[450px] mx-auto flex flex-col justify-center items-center gap-4 rounded bg-purple-800"
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmitLoginForm()"
+        class="w-[400px] mx-auto flex flex-col justify-center items-center gap-4"
       >
-        <p-card class="mt-5" header="Login" subheader="Faça seu login aqui!">
-        </p-card>
-
-        <div>
-          <input
-            class="w-full rounded outline-none p-2 text-center text-black text-xs font-semibold"
-            type="email"
-            pInputText
-            placeholder="José@mail.com"
-            maxlength="55"
-          />
-        </div>
-        <div>
-          <input
-            class="w-full rounded outline-none p-2 text-center text-black text-xs font-semibold"
-            type="password"
-            pInputText
-            placeholder="******"
-            maxlength="8"
-          />
-        </div>
-        <div>
-          <button
-            className="w-full hover:scale-100 duration-200 transition-all rounded p-2 gap-2 text-center text-white text-xl font-semibold"
-            type="submit"
-            pButton
-            pRipple
-            label="Login"
-          ></button>
-        </div>
-        <span class="text-white text-2xl font-semibold mb-4"
-          >Criar uma conta</span
+        <p-card
+          class="gap-4"
+          header="Login"
+          subheader="Faça seu login aqui!"
+          *ngIf="loginCard"
         >
+          <div>
+            <input
+              class="w-full rounded outline-none my-2 p-2 text-center text-black text-xs font-semibold"
+              type="email"
+              pInputText
+              placeholder="José@mail.com"
+              maxlength="50"
+              formControlName="email"
+            />
+          </div>
+          <div>
+            <input
+              class="w-full rounded outline-none my-2 p-2 text-center text-black text-xs font-semibold"
+              type="password"
+              pInputText
+              placeholder="******"
+              maxlength="8"
+              formControlName="password"
+            />
+          </div>
+          <div>
+            <button
+              className="w-full my-2 hover:scale-100 duration-200 transition-all rounded p-2 gap-2 text-center text-white text-xl font-semibold"
+              type="submit"
+              pButton
+              pRipple
+              [disabled]="!loginForm.valid"
+              label="Login"
+            ></button>
+          </div>
+          <span
+            class="text-blue-200 text-xs cursor-pointer font-semibold"
+            (click)="loginCard = !loginCard"
+            >Criar uma conta</span
+          >
+        </p-card>
+      </form>
+
+      <!--Sign Up-->
+      <form
+        class="w-[400px] mx-auto flex flex-col justify-center items-center gap-4"
+        [formGroup]="registerForm"
+        (ngSubmit)="onSubmitRegisterForm()"
+      >
+        <p-card
+          header="Cadastre-se"
+          subheader="Crie sua conta aqui!"
+          *ngIf="!loginCard"
+        >
+          <div>
+            <input
+              class="w-full rounded outline-none mt-2 p-2 text-center text-black text-xs font-semibold"
+              type="text"
+              pInputText
+              placeholder="José da Silva"
+              maxlength="50"
+              formControlName="name"
+            />
+          </div>
+
+          <div>
+            <input
+              class="w-full rounded outline-none my-2 p-2 text-center text-black text-xs font-semibold"
+              type="email"
+              pInputText
+              placeholder="José@mail.com"
+              maxlength="55"
+              formControlName="email"
+            />
+          </div>
+          <div>
+            <input
+              class="w-full rounded outline-none my-2 p-2 text-center text-black text-xs font-semibold"
+              type="password"
+              pInputText
+              placeholder="******"
+              maxlength="8"
+              formControlName="password"
+            />
+          </div>
+          <div>
+            <button
+              className="w-full my-2 hover:scale-100 duration-200 transition-all rounded p-2 gap-2 text-center text-white text-xl font-semibold"
+              type="submit"
+              pButton
+              pRipple
+              [disabled]="!registerForm.valid"
+              label="Cadastrar"
+            ></button>
+          </div>
+          <span
+            class="text-blue-200 text-xs cursor-pointer font-semibold"
+            (click)="loginCard = !loginCard"
+          >
+            Faça login
+          </span>
+        </p-card>
       </form>
     </div>
   </div>
