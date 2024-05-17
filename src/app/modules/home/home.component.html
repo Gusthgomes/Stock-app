@@ -1,0 +1,43 @@
+<div class="grid">
+  <div class="col-12">
+    <div>
+      <form
+        class="w-[400px] h-[450px] mx-auto flex flex-col justify-center items-center gap-4 rounded bg-purple-800"
+      >
+        <p-card class="mt-5" header="Login" subheader="Faça seu login aqui!">
+        </p-card>
+
+        <div>
+          <input
+            class="w-full rounded outline-none p-2 text-center text-black text-xs font-semibold"
+            type="email"
+            pInputText
+            placeholder="José@mail.com"
+            maxlength="55"
+          />
+        </div>
+        <div>
+          <input
+            class="w-full rounded outline-none p-2 text-center text-black text-xs font-semibold"
+            type="password"
+            pInputText
+            placeholder="******"
+            maxlength="8"
+          />
+        </div>
+        <div>
+          <button
+            className="w-full hover:scale-100 duration-200 transition-all rounded p-2 gap-2 text-center text-white text-xl font-semibold"
+            type="submit"
+            pButton
+            pRipple
+            label="Login"
+          ></button>
+        </div>
+        <span class="text-white text-2xl font-semibold mb-4"
+          >Criar uma conta</span
+        >
+      </form>
+    </div>
+  </div>
+</div>
